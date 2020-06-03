@@ -8,7 +8,6 @@ import { routerMiddleware } from 'connected-react-router'
 import createSagaMiddleware from 'redux-saga'
 
 import createRootReducer from 'reducers'
-import 'styles/index.scss'
 import history from "utils/history"
 
 const sagaMiddleware = createSagaMiddleware()
