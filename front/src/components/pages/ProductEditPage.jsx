@@ -26,8 +26,13 @@ class ProductsEditPage extends Component {
       if(p.id == id) product = p
     })
 
-    return <div>
-      { product && <ProductEdit product={product} onSave={(product) => this.saveProduct(product)}></ProductEdit> }
+    return <div className='product-edit-page'>
+      { product && 
+        <ProductEdit 
+          product={product} 
+          onSave={(product) => this.saveProduct(product)}
+          onCancel={() => history.push('/')}>
+        </ProductEdit> }
     </div>
   }
 }

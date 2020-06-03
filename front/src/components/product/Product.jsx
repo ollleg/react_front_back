@@ -8,21 +8,35 @@ class Product extends Component {
     super(props)
   }
 
+  onDelete(e, id) {
+    const {onDelete} = this.props
+    e.stopPropagation()
+    onDelete(id)
+  }
+
   render() {
-    const {name, id} = this.props
-    return <div onClick={() => {history.push('/edit/' + id)}}>  
-      {name}
+    const {product} = this.props
+    const {name, id, picture, quantity, color, price} = product
+    return <div className='product-card' onClick={() => {history.push('/edit/' + id)}}>  
+      <div className='picture' style={{ backgroundImage: `url(${picture})` }}/>
+      <div className='info'>
+        <div className='title'>{name}</div>
+        <div>{quantity ? quantity + ' items' : 'Out of order'}</div>
+        <div>{color}</div>
+        <div>{price + '$'}</div>
+        <button onClick={(e) => {this.onDelete(e,id)}}>
+          <span className="material-icons">
+            clear
+          </span>
+        </button> 
+      </div>
     </div>
   }
 }
 
 Product.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  quantity: PropTypes.number,
-  price: PropTypes.number,
-  color: PropTypes.string,
-  picture: PropTypes.string
+  product: PropTypes.object,
+  onDelete: PropTypes.func
 }
 
 

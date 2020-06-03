@@ -10,13 +10,10 @@ class ProductsList extends Component {
 
   render() {
     const {products, onDelete} = this.props
-    return <div>
+    return <div className='products-list'>
       { products.map((p) => {
         return (
-          <div key={p.id}>
-            <Product {...p}></Product>
-            <button onClick={() => {onDelete(p.id)}}>Delete</button>
-          </div>
+          <Product key={p.id} product={p} onDelete={(id) => onDelete(id)}></Product>
         )
       }) }
     </div>

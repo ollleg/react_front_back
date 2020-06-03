@@ -8,7 +8,7 @@ import { delete_product } from './api/v1/products/delete_product'
 require('dotenv').config()
 
 const app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb', extended: true}))
 
 endpoint('GET', '/api/v1/products', app, ({req, res}) => {
   return list_products()

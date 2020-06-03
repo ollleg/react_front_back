@@ -1,0 +1,38 @@
+.product-list-page {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    background-color: white;
+    margin: 20px;
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+  }
+
+  .add-product-controls {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+
+    &>*{
+      margin: 10px;
+    }
+
+    button {
+      background-color: #eee;
+      border-color: #dfdfdf;
+    
+      &:hover {
+        background-color: #dfdfdf;
+      }
+    }
+  }
+}
+
+.product-edit-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
